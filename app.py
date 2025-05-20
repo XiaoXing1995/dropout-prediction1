@@ -70,10 +70,9 @@ for feature in top25_features:
     input_data[feature] = float(value)
 
 # Prediction
-input_df = pd.DataFrame([input_data])
-input_scaled = scaler.transform(input_df)
-prediction = model.predict(input_scaled)[0]
-prob = model.predict_proba(input_scaled)[0][1]
+input_df = pd.DataFrame([input_data])  # 不变
+prediction = model.predict(input_df)[0]
+prob = model.predict_proba(input_df)[0][1]
 
 if trigger:
     radar_fig = go.Figure()
